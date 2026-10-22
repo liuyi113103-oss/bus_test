@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="zh-Hans"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#edf1f4"><title>站牌版 | 岭南大学 67M / 67X</title><style>
+*{box-sizing:border-box}body{margin:0}button,a{-webkit-tap-highlight-color:transparent}button{font:inherit;cursor:pointer}button:disabled{opacity:.55;cursor:wait}button:focus-visible,a:focus-visible{outline:3px solid #ec7900;outline-offset:5px}h1,h2,h3,p{margin:0}a{color:inherit;text-underline-offset:4px}.topbar,.live,.toolbar,.arrival,.meta,footer{display:flex;align-items:center;justify-content:space-between;gap:16px}.live{gap:8px;font-size:13px;white-space:nowrap}.dot{width:8px;height:8px;background:#6c747d;border-radius:50%}body[data-state=live] .dot{background:#247448}body[data-state=error] .dot{background:#c74420}.route-heading{display:flex;align-items:baseline;gap:15px}.route-destination{font-size:13px;font-weight:400}.label{font-size:14px;font-weight:600}.detail,.remark{font-size:12px;line-height:1.7}.minutes{font-variant-numeric:tabular-nums;font-size:36px;line-height:1;font-weight:700;white-space:nowrap}.unit{font-size:12px;font-weight:400;margin-left:8px}.minutes.due{font-size:22px}.empty{padding:30px 0;font-size:17px;line-height:1.8}.empty small{display:block;font-size:12px}.route-message{font-size:12px;color:#a23419;line-height:1.7;margin-top:12px}.route-message:empty{display:none}.route-updated{font-size:11px;margin-top:15px}.meta{font-size:12px;margin-top:24px}footer{font-size:12px;line-height:1.8;align-items:flex-start}footer a{white-space:nowrap}.stop-path{list-style:none;display:flex;padding:0;position:relative}.stop-path li{flex:1;position:relative}.stop-path li:last-child{flex:0 0 auto}.stop-path li:before{content:'';display:block;width:12px;height:12px;border-radius:50%;position:relative;z-index:1}.stop-path li:not(:last-child):after{content:'';position:absolute;top:5px;left:0;width:100%;height:2px}.stop-path span{display:block;margin-top:12px;font-size:13px}.board-grid{display:grid;grid-template-columns:1fr 1fr}.wait-note{font-size:13px;line-height:1.8}.brand{font-weight:700;font-size:15px}.route-number{font-variant-numeric:lining-nums}.arrival{padding:20px 0}.arrival+.arrival{border-top:1px solid var(--line)}.arrival:first-child .minutes{font-size:58px}.arrival:first-child .minutes.due{font-size:24px}.arrival:first-child{padding-top:26px;padding-bottom:26px}.arrival>div:first-child{min-width:0}.toolbar{margin-bottom:24px}h2{font-size:17px;font-weight:600}button{padding:10px 18px}.meta span{display:block}noscript{display:block;margin-top:20px}@media(max-width:640px){.board-grid{grid-template-columns:1fr}.topbar{gap:10px}.brand{font-size:13px}.live{font-size:11px}.route-heading{gap:12px}.meta,footer{flex-wrap:wrap}.arrival:first-child .minutes{font-size:49px}.arrival:first-child .minutes.due{font-size:21px}.minutes{font-size:30px}.detail{font-size:11px}.stop-path span{font-size:12px}.toolbar{margin-bottom:18px}}
+
+:root{color-scheme:light;--line:#d9dce0;--red:#bd2636;--ink:#202f3d;--paper:#ffffff;--ground:#edf1f4;--muted:#526373;font-family:"Avenir Next","PingFang SC","Microsoft YaHei",sans-serif;color:var(--ink);background:var(--ground)}main{max-width:1000px;margin:0 auto;padding:30px 32px 36px}.topbar{padding-bottom:22px;border-bottom:2px solid var(--ink)}.brand{display:flex;gap:10px;align-items:center}.brand:before{content:'';width:11px;height:23px;background:var(--red);border-radius:7px 7px 2px 2px}.hero{margin:34px 0;background:var(--paper);display:grid;grid-template-columns:100px 1fr;border:1px solid var(--line)}.stop-sign{background:var(--red);color:white;display:flex;align-items:center;justify-content:center;writing-mode:vertical-rl;letter-spacing:.16em;font-size:20px;font-weight:650;padding:25px 15px}.hero-content{padding:30px 34px}h1{font-size:clamp(26px,4.2vw,42px);font-weight:650;letter-spacing:-.04em}.hero-sub{font-size:13px;color:var(--muted);margin-top:9px}.stop-path{margin:28px 0 0}.stop-path li:before{background:white;border:3px solid var(--red)}.stop-path li:not(:last-child):after{background:var(--red)}.wait-note{color:var(--muted);margin:0 0 22px}.toolbar button{border:1px solid var(--ink);background:var(--paper);border-radius:4px;color:var(--ink)}button:hover{background:#e0e6eb}.board-grid{gap:26px}.route-board{background:var(--paper);border-top:5px solid var(--red);padding:22px 26px 24px}.route-heading{padding-bottom:17px;border-bottom:2px solid var(--ink)}.route-number{font-size:40px;font-weight:800;letter-spacing:-.045em}.route-destination,.detail,.remark,.route-updated,.meta,footer{color:var(--muted)}.arrival:first-child .minutes{color:var(--red)}.arrivals{min-height:278px}.label{margin-bottom:7px}footer{margin-top:35px;padding-top:20px;border-top:1px solid #c7cfd7}.meta{padding:0 2px}@media(max-width:640px){main{padding:20px 18px}.hero{grid-template-columns:46px 1fr;margin:25px 0}.stop-sign{font-size:15px;padding:18px 8px}.hero-content{padding:24px 18px}h1{font-size:26px;line-height:1.5}.hero-sub{font-size:11px}.stop-path{margin-top:22px}.route-board{padding:18px 22px 22px}.board-grid{gap:20px}.route-number{font-size:34px}.arrivals{min-height:260px}}
+</style></head>
+<body data-state="loading"><main>
+<header class="topbar"><span class="brand">岭南大学候车板</span><span class="live"><span class="dot" aria-hidden="true"></span><span id="status">连接中</span></span></header>
+<section class="hero" aria-label="乘车路线"><div class="stop-sign" aria-hidden="true">岭南大学站</div><div class="hero-content"><h1>岭南大学<br>到景峰花园</h1><p class="hero-sub">TM290 上车，TM294 下车</p><ol class="stop-path" aria-label="沿途站点"><li><span>岭南大学</span></li><li><span>彩晖花园</span></li><li><span>景峰花园</span></li></ol></div></section>
+<p class="wait-note">67M 和 67X 都能到达。下方显示巴士抵达岭南大学站的预计等候时间。</p>
+<section aria-labelledby="arrivals-heading"><div class="toolbar"><h2 id="arrivals-heading">下一班，几分钟？</h2><button type="button" id="refresh">刷新到站时间</button></div><div class="board-grid"><section class="route-board" aria-labelledby="heading-67M"><h3 class="route-heading" id="heading-67M"><span class="route-number">67M</span><span class="route-destination">往葵芳站<br>途经景峰花园</span></h3><div id="arrivals-67M" class="arrivals" aria-live="polite" aria-busy="true"><div class="empty">正在获取到站时间…<small>正在连接九巴</small></div></div><p id="message-67M" class="route-message" role="status"></p><p id="updated-67M" class="route-updated">等待首次更新</p></section><section class="route-board" aria-labelledby="heading-67X"><h3 class="route-heading" id="heading-67X"><span class="route-number">67X</span><span class="route-destination">往旺角东站<br>途经景峰花园</span></h3><div id="arrivals-67X" class="arrivals" aria-live="polite" aria-busy="true"><div class="empty">正在获取到站时间…<small>正在连接九巴</small></div></div><p id="message-67X" class="route-message" role="status"></p><p id="updated-67X" class="route-updated">等待首次更新</p></section></div><div class="meta"><span>每 30 秒自动查询</span><span id="countdown">正在连接</span></div></section>
+<footer><span>香港时间。原定班次以九巴备注为准。<br>资料来源：<a href="https://data.gov.hk/en-data/dataset/hk-td-tis_21-etakmb" target="_blank" rel="noopener">九巴开放数据</a></span><a href="https://liuyi113103-oss.github.io/bus_test/" target="_blank" rel="noopener">打开已发布的巴士板</a></footer><noscript>请启用 JavaScript 查看实时到站资料。</noscript></main><script>
+    'use strict';
+    const STOP = 'AA5DA45828958EAE';
+    const REFRESH_MS = 30000;
+    const routes = ['67M', '67X'].map(route => ({ route, rows: [], loaded: false, error: false, checked: null, dataTime: null, remarks: '' }));
+    const byId = id => document.getElementById(id);
+    const time = new Intl.DateTimeFormat('en-GB', { timeZone: 'Asia/Hong_Kong', hour: '2-digit', minute: '2-digit', second: '2-digit', hourCycle: 'h23' });
+    const isLocal = location.protocol === 'http:' && ['127.0.0.1', 'localhost'].includes(location.hostname);
+    let busy = false, nextRefresh = Date.now() + REFRESH_MS;
+    function node(tag, className, text) {
+      const element = document.createElement(tag);
+      element.className = className;
+      element.textContent = text;
+      return element;
+    }
+    function render() {
+      const now = Date.now();
+      for (const state of routes) {
+        const container = byId(`arrivals-${state.route}`);
+        if (state.loaded || state.error) {
+          container.replaceChildren();
+          const upcoming = state.rows.filter(row => Date.parse(row.eta) >= now - 30000).slice(0, 3);
+          if (!upcoming.length) {
+            const empty = node('div', 'empty', state.error && !state.loaded ? '暂时无法获取到站时间' : '暂无未来班次资料');
+            empty.append(node('small', '', state.error ? '正在等待重新连接九巴。' : '九巴暂未提供预计到站时间，将继续自动查询。'));
+            container.append(empty);
+          }
+          upcoming.forEach((row, index) => {
+            const arrival = node('div', 'arrival', '');
+            const info = document.createElement('div');
+            info.append(node('div', 'label', index === 0 ? '下一班' : `第 ${index + 1} 班`));
+            info.append(node('div', 'detail', `预计 ${time.format(new Date(row.eta)).slice(0, 5)} 抵达岭南大学`));
+            if (row.rmk_sc || row.rmk_tc) info.append(node('div', 'remark', row.rmk_sc || row.rmk_tc));
+            const remaining = Math.max(0, Math.ceil((Date.parse(row.eta) - now) / 60000));
+            const minutes = node('div', remaining ? 'minutes' : 'minutes due', remaining ? String(remaining) : '即将到站');
+            if (remaining) minutes.append(node('span', 'unit', '分钟'));
+            arrival.append(info, minutes);
+            container.append(arrival);
+          });
+        }
+        const delayed = state.loaded && Number.isFinite(state.dataTime) && now - state.dataTime > 180000;
+        byId(`message-${state.route}`).textContent = state.error
+          ? (state.loaded ? '刷新失败，保留的预计时间可能已过期。30 秒后自动重试。' : '无法连接九巴，请检查网络。30 秒后自动重试。')
+          : delayed ? '九巴数据已超过 3 分钟未更新，预计时间可能有延迟。' : state.remarks;
+        byId(`updated-${state.route}`).textContent = state.checked ? `上次成功查询 ${time.format(state.checked)}` : '等待首次更新';
+      }
+      const failures = routes.filter(state => state.error).length;
+      const delayed = routes.some(state => state.loaded && Number.isFinite(state.dataTime) && now - state.dataTime > 180000);
+      document.body.dataset.state = failures ? 'error' : routes.some(state => state.loaded) ? 'live' : 'loading';
+      byId('status').textContent = busy ? '更新中' : failures === 2 ? '连接异常' : failures ? '部分连接异常' : delayed ? '数据有延迟' : '实时到站';
+    }
+    async function loadRoute(state) {
+      const controller = new AbortController();
+      const timeout = setTimeout(() => controller.abort(), 12000);
+      try {
+        const endpoint = isLocal ? `/api/eta/${state.route}` : `https://data.etabus.gov.hk/v1/transport/kmb/eta/${STOP}/${state.route}/1`;
+        const response = await fetch(endpoint, { signal: controller.signal, cache: 'no-store' });
+        if (!response.ok) throw new Error(`HTTP ${response.status}`);
+        const payload = await response.json();
+        if (!Array.isArray(payload.data)) throw new Error('Unexpected response');
+        // KMB's stop-specific response omits stop_id; direction and service type must still match.
+        const matching = payload.data.filter(row => row.co === 'KMB' && row.route === state.route && row.dir === 'O' && Number(row.service_type) === 1);
+        const valid = matching.filter(row => row.eta && Number.isFinite(Date.parse(row.eta))).sort((a, b) => Date.parse(a.eta) - Date.parse(b.eta));
+        state.rows = valid.filter((row, index, all) => index === all.findIndex(other => other.eta === row.eta));
+        state.dataTime = Math.max(...matching.map(row => Date.parse(row.data_timestamp)).filter(Number.isFinite));
+        if (!Number.isFinite(state.dataTime)) state.dataTime = Date.parse(payload.generated_timestamp);
+        state.remarks = state.rows.length ? '' : [...new Set(matching.map(row => row.rmk_sc || row.rmk_tc).filter(Boolean))].join(' · ');
+        state.loaded = true;
+        state.error = false;
+        state.checked = new Date();
+      } catch (error) {
+        state.error = true;
+      } finally {
+        clearTimeout(timeout);
+      }
+    }
+    async function refresh() {
+      if (busy) return;
+      busy = true;
+      nextRefresh = Date.now() + REFRESH_MS;
+      byId('refresh').disabled = true;
+      routes.forEach(state => byId(`arrivals-${state.route}`).setAttribute('aria-busy', 'true'));
+      render();
+      await Promise.all(routes.map(loadRoute));
+      busy = false;
+      byId('refresh').disabled = false;
+      routes.forEach(state => byId(`arrivals-${state.route}`).setAttribute('aria-busy', 'false'));
+      render();
+    }
+    byId('refresh').addEventListener('click', refresh);
+    setInterval(() => {
+      byId('countdown').textContent = busy ? '正在刷新…' : `${Math.max(0, Math.ceil((nextRefresh - Date.now()) / 1000))} 秒后刷新`;
+      if (!busy && Date.now() >= nextRefresh) refresh();
+    }, 1000);
+    setInterval(render, 10000);
+    document.addEventListener('visibilitychange', () => { if (!document.hidden && Date.now() >= nextRefresh) refresh(); });
+    refresh();
+  </script></body></html>
