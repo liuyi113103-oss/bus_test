@@ -1,0 +1,191 @@
+<!doctype html>
+<html lang="zh-Hans">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f5f3ed">
+  <title>67M / 67X · 岭南大学 → 景峰花园</title>
+  <style>
+    :root { color-scheme: light; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; color: #202b2a; background: #f5f3ed; }
+    * { box-sizing: border-box; }
+    body { margin: 0; min-height: 100vh; padding: 48px 24px; }
+    main { max-width: 760px; margin: auto; }
+    .masthead, .live, .toolbar, footer { display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+    .masthead { padding-bottom: 24px; border-bottom: 1px solid #d6d9cf; font-size: 12px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; }
+    .live { gap: 8px; letter-spacing: .06em; }
+    .dot { width: 7px; height: 7px; border-radius: 50%; background: #758178; }
+    body[data-state="live"] .dot { background: #367c50; }
+    body[data-state="error"] .dot { background: #b65c21; }
+    .route { display: flex; align-items: center; gap: 24px; margin: 40px 0 32px; }
+    .badge { background: #ffcc51; border: 1px solid #e2b23f; border-radius: 18px; padding: 24px 20px; font-size: 43px; font-weight: 800; letter-spacing: -.06em; }
+    .eyebrow { font-size: 11px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: #67746a; margin: 0 0 8px; }
+    h1 { font-size: clamp(25px, 4vw, 35px); line-height: 1.2; letter-spacing: -.04em; margin: 0; font-weight: 650; }
+    .origin { font-size: 15px; color: #5b675e; margin: 10px 0 0; }
+    .chinese { margin: 8px 0 0; font-size: 13px; color: #6c766d; }
+    .toolbar { margin-bottom: 14px; }
+    h2 { margin: 0; font-size: 13px; letter-spacing: .1em; text-transform: uppercase; }
+    button { border: 1px solid #cdd1c6; border-radius: 30px; padding: 9px 15px; color: #334338; background: transparent; font: inherit; font-size: 12px; cursor: pointer; }
+    button:hover { background: #e9ebe2; }
+    button:focus-visible { outline: 3px solid #367c50; outline-offset: 3px; }
+    button:disabled { opacity: .5; cursor: wait; }
+    .arrivals { border: 1px solid #d5d9cd; border-radius: 22px; overflow: hidden; background: #fffef9; }
+    .arrival { display: flex; align-items: center; justify-content: space-between; padding: 26px 30px; gap: 20px; border-top: 1px solid #e0e3d9; }
+    .arrival:first-child { background: #e8eddf; border-top: 0; padding-top: 32px; padding-bottom: 32px; }
+    .label { font-weight: 600; font-size: 17px; margin-bottom: 7px; }
+    .detail { font-size: 13px; color: #626f60; }
+    .remark { margin-top: 6px; font-size: 12px; color: #626f60; max-width: 330px; }
+    .minutes { white-space: nowrap; font-size: 48px; font-weight: 600; letter-spacing: -.05em; font-variant-numeric: tabular-nums; }
+    .arrival:first-child .minutes { font-size: 70px; }
+    .unit { font-size: 14px; font-weight: 400; letter-spacing: 0; margin-left: 7px; color: #626f60; }
+    .empty { padding: 45px 30px; font-size: 17px; line-height: 1.7; }
+    .empty small { display: block; font-size: 13px; color: #626f60; }
+    #message { font-size: 13px; line-height: 1.6; color: #946030; margin: 16px 0 0; }
+    #message:empty { display: none; }
+    .meta { display: flex; justify-content: space-between; gap: 14px; flex-wrap: wrap; color: #677265; font-size: 12px; margin: 18px 4px 0; font-variant-numeric: tabular-nums; }
+    footer { border-top: 1px solid #d6d9cf; margin-top: 38px; padding-top: 20px; font-size: 11px; color: #71806e; line-height: 1.7; align-items: flex-start; }
+    a { color: inherit; text-underline-offset: 3px; }
+    @media (max-width: 520px) { body { padding: 26px 18px; } .route { gap: 16px; margin-top: 30px; } .badge { font-size: 32px; padding: 21px 14px; } .arrival { padding: 22px; } .arrival:first-child .minutes { font-size: 56px; } .minutes { font-size: 40px; } footer { flex-direction: column; gap: 7px; } }
+    .route-badges { display: flex; gap: 8px; flex-wrap: wrap; }
+    .badge { font-size: 25px; padding: 15px 13px; border-radius: 12px; letter-spacing: -.03em; }
+    .route { align-items: flex-start; }
+    .journey { color: #626f60; font-size: 13px; margin: -12px 0 30px; }
+    .route-board + .route-board { margin-top: 28px; }
+    .route-heading { display: flex; align-items: center; gap: 12px; margin: 0 0 12px; }
+    .route-number { background: #ffcc51; border-radius: 8px; padding: 7px 10px; font-size: 20px; font-weight: 750; }
+    .route-destination { color: #626f60; font-size: 12px; font-weight: 400; letter-spacing: 0; }
+    .route-message { font-size: 12px; color: #946030; line-height: 1.7; margin: 10px 4px 0; }
+    .route-message:empty { display: none; }
+    .route-updated { font-size: 11px; color: #677265; margin: 10px 4px 0; }
+    .arrival { padding: 17px 26px; }
+    .arrival:first-child { padding: 22px 26px; }
+    .minutes { font-size: 36px; }
+    .arrival:first-child .minutes { font-size: 52px; }
+    .arrival .minutes.due, .arrival:first-child .minutes.due { font-size: 24px; letter-spacing: 0; }
+    @media (max-width: 520px) { .route { flex-direction: column; gap: 18px; } .badge { font-size: 23px; padding: 10px 14px; } .arrival:first-child .minutes { font-size: 48px; } }
+  </style>
+</head>
+<body data-state="loading">
+  <main>
+    <header class="masthead"><span>九巴 KMB / 到站时间</span><span class="live"><span class="dot" aria-hidden="true"></span><span id="status">连接中</span></span></header>
+    <section class="route" aria-label="乘车路线">
+      <div class="route-badges"><div class="badge">67M</div><div class="badge">67X</div></div>
+      <div><p class="eyebrow">岭南大学出发</p><h1>岭南大学 → 景峰花园</h1><p class="origin">上车：岭南大学 · TM290</p><p class="chinese">下车：景峰花园 · TM294</p></div>
+    </section>
+    <p class="journey">岭南大学 → 彩晖花园 → 景峰花园 · 以下分钟数为巴士抵达上车站的预计等待时间</p>
+    <section aria-labelledby="arrivals-heading">
+      <div class="toolbar"><h2 id="arrivals-heading">未来班次</h2><button id="refresh" type="button">↻ 立即刷新</button></div>
+      <section class="route-board" aria-labelledby="heading-67M">
+        <h3 class="route-heading" id="heading-67M"><span class="route-number">67M</span><span class="route-destination">往葵芳站 · 途经景峰花园</span></h3>
+        <div id="arrivals-67M" class="arrivals" aria-live="polite" aria-busy="true"><div class="empty">正在获取到站时间…</div></div>
+        <p id="message-67M" class="route-message" role="status"></p><p id="updated-67M" class="route-updated">等待首次更新</p>
+      </section>
+      <section class="route-board" aria-labelledby="heading-67X">
+        <h3 class="route-heading" id="heading-67X"><span class="route-number">67X</span><span class="route-destination">往旺角东站 · 途经景峰花园</span></h3>
+        <div id="arrivals-67X" class="arrivals" aria-live="polite" aria-busy="true"><div class="empty">正在获取到站时间…</div></div>
+        <p id="message-67X" class="route-message" role="status"></p><p id="updated-67X" class="route-updated">等待首次更新</p>
+      </section>
+      <div class="meta"><span>每 30 秒自动更新</span><span id="countdown">正在连接九巴开放数据</span></div>
+    </section>
+    <footer><span>数据来源：九巴开放数据 · <a href="https://data.gov.hk/en-data/dataset/hk-td-tis_21-etakmb" target="_blank" rel="noopener">DATA.GOV.HK ↗</a><br>预计到站时间 · 香港时间</span><span>上车站 TM290 · 南行</span></footer>
+    <noscript><p>请启用 JavaScript 以显示实时到站时间。</p></noscript>
+  </main>
+  <script>
+    'use strict';
+    const STOP = 'AA5DA45828958EAE';
+    const REFRESH_MS = 30000;
+    const routes = ['67M', '67X'].map(route => ({ route, rows: [], loaded: false, error: false, checked: null, dataTime: null, remarks: '' }));
+    const byId = id => document.getElementById(id);
+    const time = new Intl.DateTimeFormat('en-GB', { timeZone: 'Asia/Hong_Kong', hour: '2-digit', minute: '2-digit', second: '2-digit', hourCycle: 'h23' });
+    const isLocal = location.protocol === 'http:' && ['127.0.0.1', 'localhost'].includes(location.hostname);
+    let busy = false, nextRefresh = Date.now() + REFRESH_MS;
+    function node(tag, className, text) {
+      const element = document.createElement(tag);
+      element.className = className;
+      element.textContent = text;
+      return element;
+    }
+    function render() {
+      const now = Date.now();
+      for (const state of routes) {
+        const container = byId(`arrivals-${state.route}`);
+        if (state.loaded || state.error) {
+          container.replaceChildren();
+          const upcoming = state.rows.filter(row => Date.parse(row.eta) >= now - 30000).slice(0, 3);
+          if (!upcoming.length) {
+            const empty = node('div', 'empty', state.error && !state.loaded ? '暂时无法获取到站时间' : '暂无未来班次资料');
+            empty.append(node('small', '', state.error ? '正在等待重新连接九巴。' : '九巴暂未提供预计到站时间，将继续自动查询。'));
+            container.append(empty);
+          }
+          upcoming.forEach((row, index) => {
+            const arrival = node('div', 'arrival', '');
+            const info = document.createElement('div');
+            info.append(node('div', 'label', index === 0 ? '下一班' : `第 ${index + 1} 班`));
+            info.append(node('div', 'detail', `预计 ${time.format(new Date(row.eta)).slice(0, 5)} 抵达岭南大学`));
+            if (row.rmk_sc || row.rmk_tc) info.append(node('div', 'remark', row.rmk_sc || row.rmk_tc));
+            const remaining = Math.max(0, Math.ceil((Date.parse(row.eta) - now) / 60000));
+            const minutes = node('div', remaining ? 'minutes' : 'minutes due', remaining ? String(remaining) : '即将到站');
+            if (remaining) minutes.append(node('span', 'unit', '分钟'));
+            arrival.append(info, minutes);
+            container.append(arrival);
+          });
+        }
+        const delayed = state.loaded && Number.isFinite(state.dataTime) && now - state.dataTime > 180000;
+        byId(`message-${state.route}`).textContent = state.error
+          ? (state.loaded ? '刷新失败，保留的预计时间可能已过期。30 秒后自动重试。' : '无法连接九巴，请检查网络。30 秒后自动重试。')
+          : delayed ? '九巴数据已超过 3 分钟未更新，预计时间可能有延迟。' : state.remarks;
+        byId(`updated-${state.route}`).textContent = state.checked ? `上次成功查询 ${time.format(state.checked)}` : '等待首次更新';
+      }
+      const failures = routes.filter(state => state.error).length;
+      const delayed = routes.some(state => state.loaded && Number.isFinite(state.dataTime) && now - state.dataTime > 180000);
+      document.body.dataset.state = failures ? 'error' : routes.some(state => state.loaded) ? 'live' : 'loading';
+      byId('status').textContent = busy ? '更新中' : failures === 2 ? '连接异常' : failures ? '部分连接异常' : delayed ? '数据有延迟' : '实时到站';
+    }
+    async function loadRoute(state) {
+      const controller = new AbortController();
+      const timeout = setTimeout(() => controller.abort(), 12000);
+      try {
+        const endpoint = isLocal ? `./api/eta/${state.route}` : `https://data.etabus.gov.hk/v1/transport/kmb/eta/${STOP}/${state.route}/1`;
+        const response = await fetch(endpoint, { signal: controller.signal, cache: 'no-store' });
+        if (!response.ok) throw new Error(`HTTP ${response.status}`);
+        const payload = await response.json();
+        if (!Array.isArray(payload.data)) throw new Error('Unexpected response');
+        // KMB's stop-specific response omits stop_id; direction and service type must still match.
+        const matching = payload.data.filter(row => row.co === 'KMB' && row.route === state.route && row.dir === 'O' && Number(row.service_type) === 1);
+        const valid = matching.filter(row => row.eta && Number.isFinite(Date.parse(row.eta))).sort((a, b) => Date.parse(a.eta) - Date.parse(b.eta));
+        state.rows = valid.filter((row, index, all) => index === all.findIndex(other => other.eta === row.eta));
+        state.dataTime = Math.max(...matching.map(row => Date.parse(row.data_timestamp)).filter(Number.isFinite));
+        if (!Number.isFinite(state.dataTime)) state.dataTime = Date.parse(payload.generated_timestamp);
+        state.remarks = state.rows.length ? '' : [...new Set(matching.map(row => row.rmk_sc || row.rmk_tc).filter(Boolean))].join(' · ');
+        state.loaded = true;
+        state.error = false;
+        state.checked = new Date();
+      } catch (error) {
+        state.error = true;
+      } finally {
+        clearTimeout(timeout);
+      }
+    }
+    async function refresh() {
+      if (busy) return;
+      busy = true;
+      nextRefresh = Date.now() + REFRESH_MS;
+      byId('refresh').disabled = true;
+      routes.forEach(state => byId(`arrivals-${state.route}`).setAttribute('aria-busy', 'true'));
+      render();
+      await Promise.all(routes.map(loadRoute));
+      busy = false;
+      byId('refresh').disabled = false;
+      routes.forEach(state => byId(`arrivals-${state.route}`).setAttribute('aria-busy', 'false'));
+      render();
+    }
+    byId('refresh').addEventListener('click', refresh);
+    setInterval(() => {
+      byId('countdown').textContent = busy ? '正在刷新…' : `${Math.max(0, Math.ceil((nextRefresh - Date.now()) / 1000))} 秒后刷新`;
+      if (!busy && Date.now() >= nextRefresh) refresh();
+    }, 1000);
+    setInterval(render, 10000);
+    document.addEventListener('visibilitychange', () => { if (!document.hidden && Date.now() >= nextRefresh) refresh(); });
+    refresh();
+  </script>
+</body>
+</html>
